@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="ex03.di.annot.MyCats" id="cat3">
+		<constructor-arg><value>고양이</value></constructor-arg>
+		<constructor-arg><value>8</value></constructor-arg>
+		<constructor-arg><list> <!-- 배열경우에 사용 -->
+			<value>잠자기</value>
+			<value>꾹꾹이</value>
+		</list></constructor-arg>
+		
+		<property name="weight" value="8.9"></property>
+		<property name="color" value="black"></property>
+	</bean>
+	
+	<bean class="ex03.di.annot.Cats" id="catInfo">
+		<!-- <property name="myCats" ref="cat3"></property> -->
+		<property name="myCats"><ref bean="cat3"/></property>
+	</bean>
+
+</beans>
